@@ -51,7 +51,7 @@ const loadCategoryById = async (category = "Cat", id = 0) => {
     removeActiveClass();
     const activeBtn = document.getElementById(`${id}`);
     activeBtn.classList.add("activeCategory");
-    
+
     setTimeout(() => {
       showCards(data.data);
       document.getElementById("spiner").style.display = "none";
@@ -78,26 +78,11 @@ const loadCards = async (status = false) => {
   document.getElementById("card-1").innerHTML = "";
   if (status) {
     pets = [...pets].sort((a, b) => b.price - a.price);
-    document.getElementById("sortBtn").addEventListener("click", () => {
-      document.getElementById("card-1").innerHTML = "";
-      document.getElementById("spiner").style.display = "block";
-      removeActiveClass()
-      setTimeout(() => {
-        loadCards(true);
-        document.getElementById("spiner").style.display = "none";
-    
-      }, 2000);
-    });
-    setTimeout(() => {
-  document.getElementById("spiner").style.display = "none";
-
-      showCards(pets);
-    }, 2000);
+    showCards(pets);
     return;
   } else {
     setTimeout(() => {
-  document.getElementById("spiner").style.display = "none";
-
+      document.getElementById("spiner").style.display = "none";
       showCards(pets);
     }, 2000);
   }
@@ -106,7 +91,7 @@ const loadCards = async (status = false) => {
 // Show cards
 const showCards = (pets = []) => {
   const card1 = document.getElementById("card-1");
- 
+
   pets.length === 0
     ? (card1.innerHTML = `
       <div class=" py-6 text-center flex flex-col gap-4 items-center col-span-full bg-base-100">
@@ -258,19 +243,17 @@ const adoptModel = () => {
   document.getElementById("adoptModal").showModal();
 };
 
+// sorting
 document.getElementById("sortBtn").addEventListener("click", () => {
-  document.getElementById("card-1").innerHTML = "";
   document.getElementById("spiner").style.display = "block";
-  removeActiveClass()
+  document.getElementById("card-1").innerHTML = "";
+  removeActiveClass();
   setTimeout(() => {
     loadCards(true);
     document.getElementById("spiner").style.display = "none";
-
   }, 2000);
 });
-
 
 loadCategories();
 
 loadCards();
-
