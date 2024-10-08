@@ -22,7 +22,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-{lato}">
+<body class="">
   <!--  -->
   <header>
     <!--  -->
@@ -100,7 +100,7 @@
             <h1 class="text-5xl font-bold">
               Your Path to Adoption Starts Here
             </h1>
-            <p class="text-colorPrimary/55">
+            <p class="color-primary">
               It is a long established fact that a reader will be distracted by the readable content of a page when
               looking at its layout. The point of using Lorem Ipsum is that it has a.
             </p>
@@ -123,7 +123,7 @@
       <!-- adopt section header -->
       <div class="max-w-xl mx-auto text-center space-y-3">
         <h2 class="text-3xl font-bold">Adopt Your Best Friend</h2>
-        <p class="text-colorPrimary/65">
+        <p class="color-primary">
           It is a long established fact that a reader will be distracted by the readable content of a page when looking
           at its layout. The point of using Lorem Ipsum is that it has a.
         </p>
@@ -134,21 +134,22 @@
       <!-- best deal for you section -->
       <div class="flex justify-between items-center ">
         <h3 class=" text-xl sm:text-3xl font-bold">Best Deal For You</h3>
-        <button  id="sortBtn"  class="btn bg-[#0E7A81] text-white hover:text-black">Sort By Price</button>
+        <button id="sortBtn" class="btn bg-[#0E7A81] text-white hover:text-black">Sort By Price</button>
       </div>
       <!-- cards  -->
-      <div class=" flex justify-center w-full col-span-full"><span id="spiner"
-        class=" hidden loading loading-bars loading-lg"></span></div>
+      
       <div id="cards" class="grid grid-cols-12 gap-4 grid-flow-col-dense">
-        <div id="card-1" class="border col-span-full md:col-span-9  lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4
-           p-3 rounded-lg ">
-
-          
+        <!-- showing cards with content -->
+        <div class="border col-span-full md:col-span-9  lg:col-span-8   p-3 rounded-lg">
+          <div class=" flex justify-center w-full col-span-full"><span id="spiner"
+            class=" hidden loading loading-bars loading-lg"></span></div>
+           <div id="card-1"  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4
+          "></div>
         </div>
-        <div  class="col-span-full md:col-span-3 lg:col-span-4 border md:h-1/4 overflow-auto rounded-lg">
-            <div id="card-2" class="grid  grid-cols-3 md:grid-cols-2 gap-2 p-3  ">
-
-            </div>
+        <!-- showing only card image -->
+        <div class="col-span-full md:col-span-3 lg:col-span-4 border md:h-3/4 overflow-auto rounded-lg">
+          <div id="card-2" class="grid  grid-cols-3 md:grid-cols-2 gap-2 p-3  ">
+          </div>
         </div>
       </div>
     </section>
@@ -164,19 +165,19 @@
           </form>
         </div>
       </div>
-      </dialog>
+    </dialog>
 
-      <!-- modal for successfully adopt -->
-      <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <div class="flex flex-col items-center gap-3 ">
-            <i class="fa-solid fa-handshake text-[#0E7A81] text-3xl"></i>
-            <h2 class="text-2xl font-bold">Congratulations!</h2>
-            <p>Adoption Process Is Start For Your Pet </p>
-            <h3  id="adopt-content" class="text-2xl font-bold">3</h3>
-          </div>
+    <!-- modal for successfully adopt -->
+    <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div class="flex flex-col items-center gap-3 ">
+          <i class="fa-solid fa-handshake text-[#0E7A81] text-3xl"></i>
+          <h2 class="text-2xl font-bold">Congratulations!</h2>
+          <p>Adoption Process Is Start For Your Pet </p>
+          <h3 id="adopt-content" class="text-2xl font-bold">3</h3>
         </div>
-        </dialog>
+      </div>
+    </dialog>
   </main>
   <!--  -->
   <footer class="bg-black">

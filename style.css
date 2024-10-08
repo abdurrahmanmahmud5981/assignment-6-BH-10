@@ -6,9 +6,6 @@ body{
 .color-primary{
     color: #13131370;
 }
-.color-secoundery{
-    color: #0E7A81;
-}
 .activeCategory{
     background: #f1f5f6 !important;
     border: 1px solid #b9b9b9 !important;

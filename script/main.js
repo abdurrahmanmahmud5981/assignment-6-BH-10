@@ -1,4 +1,3 @@
-//document.getElementById("spiner").style.display = "block";
 // get data for categories
 const loadCategories = async () => {
   const response = await fetch(
@@ -41,6 +40,7 @@ const showCategories = (categories) => {
 };
 
 const loadCategoryById = async (category = "Cat", id = 0) => {
+  document.getElementById("card-1").innerHTML = "";
   document.getElementById("spiner").style.display = "block";
   try {
     const response = await fetch(
@@ -50,12 +50,12 @@ const loadCategoryById = async (category = "Cat", id = 0) => {
 
     removeActiveClass();
     const activeBtn = document.getElementById(`${id}`);
-    console.log(activeBtn);
     activeBtn.classList.add("activeCategory");
+    
     setTimeout(() => {
       showCards(data.data);
       document.getElementById("spiner").style.display = "none";
-    }, 1000);
+    }, 2000);
   } catch (error) {
     console.error("error", error);
   }
@@ -68,21 +68,36 @@ const removeActiveClass = () => {
 };
 // get data for cards
 const loadCards = async (status = false) => {
+  document.getElementById("spiner").style.display = "block";
+
   const response = await fetch(
     `https://openapi.programming-hero.com/api/peddy/pets`
   );
   const data = await response.json();
   let { pets } = data;
-  console.log(pets);
+  document.getElementById("card-1").innerHTML = "";
   if (status) {
     pets = [...pets].sort((a, b) => b.price - a.price);
-    console.log(pets);
+    document.getElementById("sortBtn").addEventListener("click", () => {
+      document.getElementById("card-1").innerHTML = "";
+      document.getElementById("spiner").style.display = "block";
+      removeActiveClass()
+      setTimeout(() => {
+        loadCards(true);
+        document.getElementById("spiner").style.display = "none";
+    
+      }, 2000);
+    });
     setTimeout(() => {
+  document.getElementById("spiner").style.display = "none";
+
       showCards(pets);
     }, 2000);
     return;
   } else {
     setTimeout(() => {
+  document.getElementById("spiner").style.display = "none";
+
       showCards(pets);
     }, 2000);
   }
@@ -91,7 +106,7 @@ const loadCards = async (status = false) => {
 // Show cards
 const showCards = (pets = []) => {
   const card1 = document.getElementById("card-1");
-  document.getElementById("card-1").innerHTML = "";
+ 
   pets.length === 0
     ? (card1.innerHTML = `
       <div class=" py-6 text-center flex flex-col gap-4 items-center col-span-full bg-base-100">
@@ -107,31 +122,31 @@ const showCards = (pets = []) => {
         const div = document.createElement("div");
         div.className = "card bg-base-100 border";
         div.innerHTML = `
-     <figure class="px-4 pt-4">
+     <figure class="px-4 pt-4 h-full">
                 <img
                   src="${image}"
                   alt=${pet_name}
-                  class="rounded-xl w-full" />
+                  class="rounded-xl w-full h-full " />
      </figure>
       <div class="card-body py-4 px-4">
                 <h2 class="card-title">${pet_name}</h2>
-                <h4 class=" space-x-1 flex -ml-1 items-center text-base font-semibold  text-gray-500">
+                <h4 class=" space-x-1 flex -ml-1 items-center  font-semibold  text-gray-500">
                   <img src="assets/images/breed.svg" alt="breed icon" />
                 <span>
                 Breed: ${breed ? breed : "Not Found"}
                 </span></h4>
-                <h4 class=" space-x-1 text-base font-semibold  text-gray-500"><i class="fa-regular fa-calendar"></i> 
+                <h4 class=" space-x-1  font-semibold  text-gray-500"><i class="fa-regular fa-calendar"></i> 
                 <span>
                 Birth: ${date_of_birth ? date_of_birth : "Not Found"}</span>
                 </h4>
-                <h4 class="space-x-1 text-base font-semibold  text-gray-500"><i class="fa-solid fa-mercury"></i> 
+                <h4 class="space-x-1  font-semibold  text-gray-500"><i class="fa-solid fa-mercury"></i> 
                 <span>
                 Gender: ${gender ? gender : "Not Found"}
                 </span> 
                 </h4>
-                <h4 class="space-x-1 text-base font-semibold  text-gray-500"> <i class="fa-solid fa-dollar-sign"></i>
-                <span>
-                Price: ${price ? `${price} $` : "Not Found"}
+                <h4 class="space-x-1  font-semibold  text-gray-500"> <i class="fa-solid fa-dollar-sign"></i>
+                <span >
+                Price: ${price ? `<span >${price}</span> $` : "Not Found"}
                 </span> 
                 </h4>
                 <div class="card-actions flex border-t pt-4 lg:justify-between">
@@ -210,8 +225,8 @@ const showDetails = async (petId) => {
         </h4>
     </div>
      </div>           
-     <h3 class="text-xl pt-3 font-bold">Details Informaition</h3>
-     <p>${pet_details}</p>
+     <h3 class="text-xl py-3 font-bold">Details Informaition</h3>
+     <p class="color-primary">${pet_details}</p>
   `;
   // show modal
   document.getElementById("customeModal").showModal();
@@ -219,47 +234,43 @@ const showDetails = async (petId) => {
 
 // like button operation
 const likeBtn = (image, pet_name) => {
-  // console.log(arguments);
-  console.log(image);
   const img = document.createElement("img");
   img.className = " h-fit-content rounded-lg";
   img.src = image;
   img.alt = pet_name;
-
   document.getElementById("card-2").appendChild(img);
 };
 
 const adoptModel = () => {
-  console.log("adopt modal");
   const adoptContent = document.getElementById("adopt-content");
   let i = 2;
   const int = setInterval(function () {
-    console.log("JavaScript World");
     adoptContent.innerHTML = `
       ${i}
       `;
     i--;
-    console.log(i);
     if (i === 0) {
       document.getElementById("adoptModal").close();
       clearInterval(int);
     }
-  }, 1000);
+  }, 1002);
   adoptContent.innerHTML = `3`;
-  //  document.getElementById("customeModal").close();
   document.getElementById("adoptModal").showModal();
 };
 
 document.getElementById("sortBtn").addEventListener("click", () => {
+  document.getElementById("card-1").innerHTML = "";
   document.getElementById("spiner").style.display = "block";
-
+  removeActiveClass()
   setTimeout(() => {
+    loadCards(true);
     document.getElementById("spiner").style.display = "none";
 
-    loadCards(true);
-  }, 1000);
+  }, 2000);
 });
+
 
 loadCategories();
 
 loadCards();
+
