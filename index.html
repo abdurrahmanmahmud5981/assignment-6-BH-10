@@ -1,17 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Petty</title>
-    <link rel="stylesheet" href="./style.css">
-    <!-- tailwin and daisy UI link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body></body>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petty</title>
+  <link rel="stylesheet" href="./style.css" />
+
+  <!--font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- font lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <!-- tailwin and daisy UI link -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-{lato}">
+  <!--  -->
+  <header>
+    <!--  -->
+    <nav class="max-w-screen-xl mx-auto w-11/12">
+      <div class="navbar">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <li><a>Home</a></li>
+              <li>
+                <a href="#">Shop</a>
+              </li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <div class="btn btn-ghost text-xl">
+            <img src="./assets/images/logo.webp" alt="logo" />
+            <span>Peddy</span>
+          </div>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Home</a></li>
+            <li>
+              <a href="#">Shop</a>
+            </li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <svg width="56.000000" height="56.000000" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <desc>Created with Pixso.</desc>
+            <defs>
+              <clipPath id="clip2081_206">
+                <rect id="Frame" rx="0.500000" width="23.000000" height="23.000000"
+                  transform="translate(16.500000 16.500002)" fill="white" fill-opacity="0" />
+              </clipPath>
+            </defs>
+            <rect id="Frame 4" rx="27.500000" width="55.000000" height="55.000000"
+              transform="translate(0.500000 0.500002)" fill="#FFFFFF" fill-opacity="1.000000" />
+            <rect id="Frame" rx="0.500000" width="23.000000" height="23.000000"
+              transform="translate(16.500000 16.500002)" fill="#FFFFFF" fill-opacity="0" />
+            <g clip-path="url(#clip2081_206)">
+              <path id="Vector"
+                d="M25.17 25.82C25.92 26.57 26.93 27 28 27C29.06 27 30.07 26.57 30.82 25.82C31.57 25.07 32 24.06 32 23C32 21.93 31.57 20.92 30.82 20.17C30.07 19.42 29.06 19 28 19C26.93 19 25.92 19.42 25.17 20.17C24.42 20.92 24 21.93 24 23C24 24.06 24.42 25.07 25.17 25.82Z"
+                stroke="#131313" stroke-opacity="0.700000" stroke-width="1.500000" stroke-linejoin="round" />
+              <path id="Vector"
+                d="M22 37L22 35C22 33.93 22.42 32.92 23.17 32.17C23.92 31.42 24.93 31 26 31L30 31C31.06 31 32.07 31.42 32.82 32.17C33.57 32.92 34 33.93 34 35L34 37"
+                stroke="#131313" stroke-opacity="0.700000" stroke-width="1.500000" stroke-linejoin="round"
+                stroke-linecap="round" />
+            </g>
+            <rect id="Frame 4" rx="27.500000" width="55.000000" height="55.000000"
+              transform="translate(0.500000 0.500002)" stroke="#0E7A81" stroke-opacity="0.200000"
+              stroke-width="1.000000" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+    <!--  -->
+    <!-- hero start -->
+    <div>
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-xl space-y-4">
+            <h4 class="text-2xl font-bold color-primary">
+              Bringing Families Together ❤️‍🔥
+            </h4>
+            <h1 class="text-5xl font-bold">
+              Your Path to Adoption Starts Here
+            </h1>
+            <p class="text-colorPrimary/55">
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using Lorem Ipsum is that it has a.
+            </p>
+            <div class="">
+              <a href="#main"><button class="btn bg-[#0E7A81] text-white hover:text-black">
+                  View More
+                </button></a>
+            </div>
+            <img src="./assets/images/pet.webp" alt="pet" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </header>
+  <!--  -->
+  <main id="main" class="py-10 max-w-screen-xl mx-auto w-11/12">
+    <!--Adopt section  -->
+    <section class="space-y-6">
+      <!-- adopt section header -->
+      <div class="max-w-xl mx-auto text-center space-y-3">
+        <h2 class="text-3xl font-bold">Adopt Your Best Friend</h2>
+        <p class="text-colorPrimary/65">
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem Ipsum is that it has a.
+        </p>
+      </div>
+      <!-- adopt section content -->
+      <div id="category-btns" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+      </div>
+      <!-- best deal for you section -->
+      <div class="flex justify-between items-center ">
+        <h3 class=" text-xl sm:text-3xl font-bold">Best Deal For You</h3>
+        <button  id="sortBtn"  class="btn bg-[#0E7A81] text-white hover:text-black">Sort By Price</button>
+      </div>
+      <!-- cards  -->
+      <div class=" flex justify-center w-full col-span-full"><span id="spiner"
+        class=" hidden loading loading-bars loading-lg"></span></div>
+      <div id="cards" class="grid grid-cols-12 gap-4 grid-flow-col-dense">
+        <div id="card-1" class="border col-span-full md:col-span-9  lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4
+           p-3 rounded-lg ">
+
+          
+        </div>
+        <div  class="col-span-full md:col-span-3 lg:col-span-4 border md:h-1/4 overflow-auto rounded-lg">
+            <div id="card-2" class="grid  grid-cols-3 md:grid-cols-2 gap-2 p-3  ">
+
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- modal for details -->
+    <dialog id="customeModal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="modal-content"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class=" btn w-full py-2 px-4 rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30  ">Close</button>
+          </form>
+        </div>
+      </div>
+      </dialog>
+
+      <!-- modal for successfully adopt -->
+      <dialog id="adoptModal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div class="flex flex-col items-center gap-3 ">
+            <i class="fa-solid fa-handshake text-[#0E7A81] text-3xl"></i>
+            <h2 class="text-2xl font-bold">Congratulations!</h2>
+            <p>Adoption Process Is Start For Your Pet </p>
+            <h3  id="adopt-content" class="text-2xl font-bold">3</h3>
+          </div>
+        </div>
+        </dialog>
+  </main>
+  <!--  -->
+  <footer class="bg-black">
+    <div class="footer  text-neutral-content w-11/12 py-10 max-w-screen-xl mx-auto justify-between ">
+      <nav>
+        <h6 class=" flex gap-2 items-center">
+          <img src="./assets/images/logo.webp" alt="logo in footer"> <span class="text-xl font-bold"> Peddy </span>
+        </h6>
+
+        <p>Location: av. Washington 165, NY CA 54003</p>
+        <a class="link link-hover">Phone: +31 85 964 47 25</a>
+        <a class="link link-hover">Email: info@yourdomain.com</a>
+        <p>Openings hours: 9.00 AM - 5.00 PM</p>
+      </nav>
+      <nav>
+        <h6 class="text-xl font-bold">Usful Links</h6>
+        <a class="link link-hover">Home</a>
+        <a class="link link-hover">About us</a>
+        <a class="link link-hover">Animals</a>
+        <a class="link link-hover">Foundation</a>
+        <a class="link link-hover">Contact</a>
+
+      </nav>
+      <nav>
+        <h6 class="text-xl font-bold">Usful Links</h6>
+        <div class="flex flex-col gap-2">
+          <input class="input focus:border focus:border-gray-400 border-gray-400 bg-black"
+            placeholder="Enter Your Email" />
+          <button class="btn bg-[#0E7A81] text-white hover:text-black border-none">Subscribe</button>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="./script/main.js"></script>
+</body>
+
 </html>
