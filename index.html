@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
@@ -105,7 +105,7 @@
               looking at its layout. The point of using Lorem Ipsum is that it has a.
             </p>
             <div class="">
-              <a href="#main"><button class="btn bg-[#0E7A81] text-white hover:text-black">
+              <a href="#main"><button class="btn transition-all bg-[#0E7A81] text-white hover:text-black">
                   View More
                 </button></a>
             </div>
@@ -140,15 +140,15 @@
       
       <div id="cards" class="grid grid-cols-12 gap-4 grid-flow-col-dense">
         <!-- showing cards with content -->
-        <div class="border col-span-full md:col-span-9  lg:col-span-8   p-3 rounded-lg">
+        <div class="border col-span-full   lg:col-span-9   p-3 rounded-lg">
           <div class=" flex justify-center w-full col-span-full"><span id="spiner"
             class=" hidden loading loading-bars loading-lg"></span></div>
-           <div id="card-1"  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4
+           <div id="card-1"  class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4
           "></div>
         </div>
         <!-- showing only card image -->
-        <div class="col-span-full md:col-span-3 lg:col-span-4 border md:h-3/4 overflow-auto rounded-lg">
-          <div id="card-2" class="grid  grid-cols-3 md:grid-cols-2 gap-2 p-3  ">
+        <div class="col-span-full  lg:col-span-3 border  rounded-lg">
+          <div id="card-2" class="grid  grid-cols-2  gap-2 p-3  ">
           </div>
         </div>
       </div>
@@ -156,12 +156,12 @@
 
     <!-- modal for details -->
     <dialog id="customeModal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
+      <div class="modal-box ">
         <div id="modal-content"></div>
-        <div class="modal-action">
-          <form method="dialog">
+        <div class="mt-5 " >
+          <form method="dialog" class="w-full ">
             <!-- if there is a button in form, it will close the modal -->
-            <button class=" btn w-full py-2 px-4 rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30  ">Close</button>
+            <button class="  btn w-full py-2 px-4 rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30  ">Close</button>
           </form>
         </div>
       </div>
@@ -174,7 +174,7 @@
           <i class="fa-solid fa-handshake text-[#0E7A81] text-3xl"></i>
           <h2 class="text-2xl font-bold">Congratulations!</h2>
           <p>Adoption Process Is Start For Your Pet </p>
-          <h3 id="adopt-content" class="text-2xl font-bold">3</h3>
+          <h3 id="adopt-content" class="text-6xl font-extrabold transition-all"></h3>
         </div>
       </div>
     </dialog>
@@ -190,7 +190,13 @@
         <p>Location: av. Washington 165, NY CA 54003</p>
         <a class="link link-hover">Phone: +31 85 964 47 25</a>
         <a class="link link-hover">Email: info@yourdomain.com</a>
-        <p>Openings hours: 9.00 AM - 5.00 PM</p>
+        <p>Openings hours: 9.00 AM - 5.00 PM</p> 
+        <div class="flex gap-4 items-center">
+          <a class="link link-hover"><i class="fa-brands fa-facebook text-blue-500 text-xl"></i></i></a>
+          <a class="link link-hover"><i class="fa-brands fa-x-twitter text-xl"></i></a>
+          <a class="link link-hover"><i class="fa-brands fa-youtube text-red-500 text-xl"></i></a>
+          <a class="link link-hover"><i class="fa-brands fa-instagram text-red-300/50 text-xl"></i></a>
+        </div>
       </nav>
       <nav>
         <h6 class="text-xl font-bold">Usful Links</h6>

@@ -9,13 +9,12 @@ const loadCategories = async () => {
 // Show categories
 const showCategories = (categories) => {
   const categoryBtns = document.getElementById("category-btns");
-
   categories.forEach((categoryOfCategories) => {
     const { id, category, category_icon } = categoryOfCategories;
     const btn = document.createElement("button");
-
+    console.log(btn.innerHTML);
     btn.onclick = () => loadCategoryById(category, id);
-    btn.id = `${id}`;
+    btn.id = `${category}`;
     btn.classList.add(
       "category-btn",
       "btn",
@@ -39,7 +38,7 @@ const showCategories = (categories) => {
   });
 };
 
-const loadCategoryById = async (category = "Cat", id = 0) => {
+const loadCategoryById = async (category = "Cat") => {
   document.getElementById("card-1").innerHTML = "";
   document.getElementById("spiner").style.display = "block";
   try {
@@ -49,7 +48,7 @@ const loadCategoryById = async (category = "Cat", id = 0) => {
     const data = await response.json();
 
     removeActiveClass();
-    const activeBtn = document.getElementById(`${id}`);
+    const activeBtn = document.getElementById(`${category}`);
     activeBtn.classList.add("activeCategory");
 
     setTimeout(() => {
@@ -67,7 +66,7 @@ const removeActiveClass = () => {
   }
 };
 // get data for cards
-const loadCards = async (status = false) => {
+const loadCards = async () => {
   document.getElementById("spiner").style.display = "block";
 
   const response = await fetch(
@@ -76,16 +75,22 @@ const loadCards = async (status = false) => {
   const data = await response.json();
   let { pets } = data;
   document.getElementById("card-1").innerHTML = "";
-  if (status) {
-    pets = [...pets].sort((a, b) => b.price - a.price);
-    showCards(pets);
-    return;
-  } else {
+
+
+  document.getElementById("sortBtn").addEventListener("click", () => {
+    document.getElementById("card-1").innerHTML = "";
+    document.getElementById("spiner").style.display = "block";
+     removeActiveClass();
     setTimeout(() => {
+      pets = [...pets].sort((a, b) => b.price - a.price);
+    showCards(pets);
       document.getElementById("spiner").style.display = "none";
-      showCards(pets);
     }, 2000);
-  }
+  });
+  setTimeout(() => {
+    document.getElementById("spiner").style.display = "none";
+    showCards(pets);
+  }, 2000);
 };
 
 // Show cards
@@ -134,10 +139,10 @@ const showCards = (pets = []) => {
                 Price: ${price ? `<span >${price}</span> $` : "Not Found"}
                 </span> 
                 </h4>
-                <div class="card-actions flex border-t pt-4 lg:justify-between">
-                  <button onclick="likeBtn('${image}','${pet_name}')" class="py-2 px-4 border rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold "><i class="fa-regular fa-thumbs-up"></i></button>
-                  <button onclick="adoptModel()" class="py-2 px-4 border rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold ">Adopt</button>
-                  <button onclick="showDetails(${petId})" id=${petId} class="py-2 px-4 border rounded-lg ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold ">Details</button>
+                <div class="card-actions flex  border-t pt-4 justify-between lg:justify-normal">
+                  <button onclick="likeBtn('${image}','${pet_name}')" class="btn ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold "><i class="fa-regular fa-thumbs-up"></i></button>
+                  <button id="${petId}" onclick='adoptModel("${petId}")' class="btn ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold ">Adopt</button>
+                  <button onclick="showDetails(${petId})" id=${petId} class="btn ring-1 text-[#0E7A81] ring-[#0E7A81]/30 font-semibold ">Details</button>
                 </div>
             
     </div>
@@ -220,13 +225,15 @@ const showDetails = async (petId) => {
 // like button operation
 const likeBtn = (image, pet_name) => {
   const img = document.createElement("img");
-  img.className = " h-fit-content rounded-lg";
+  img.className = " w-full h-full rounded-lg";
   img.src = image;
   img.alt = pet_name;
   document.getElementById("card-2").appendChild(img);
 };
 
-const adoptModel = () => {
+const adoptModel = (id) => {
+  const btn = document.getElementById(id);
+  // document.getElementById("adopt-content").innerHTML = "";
   const adoptContent = document.getElementById("adopt-content");
   let i = 2;
   const int = setInterval(function () {
@@ -235,24 +242,23 @@ const adoptModel = () => {
       `;
     i--;
     if (i === 0) {
-      document.getElementById("adoptModal").close();
+      setTimeout(() => {
+        btn.className =
+          "!cursor-not-allowed btn font-semibold";
+        btn.innerText = "adopted";
+        btn.setAttribute("disabled", true);
+
+        document.getElementById("adoptModal").close();
+      }, 1000);
       clearInterval(int);
     }
-  }, 1002);
+  }, 1000);
   adoptContent.innerHTML = `3`;
   document.getElementById("adoptModal").showModal();
 };
 
 // sorting
-document.getElementById("sortBtn").addEventListener("click", () => {
-  document.getElementById("spiner").style.display = "block";
-  document.getElementById("card-1").innerHTML = "";
-  removeActiveClass();
-  setTimeout(() => {
-    loadCards(true);
-    document.getElementById("spiner").style.display = "none";
-  }, 2000);
-});
+
 
 loadCategories();
 
